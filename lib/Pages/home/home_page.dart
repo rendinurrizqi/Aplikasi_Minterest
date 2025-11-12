@@ -1,3 +1,4 @@
+import 'package:aplikasi_pinterest/Pages/account.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/pin_card.dart';
 
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
 
       // ====== APP BAR ======
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text("Minterest"),
         backgroundColor: Colors.white,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
@@ -78,7 +79,12 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
               icon: const Icon(Icons.home_outlined, size: 30),
             ),
             IconButton(
@@ -87,7 +93,12 @@ class HomePage extends StatelessWidget {
             ),
             IconButton(onPressed: () {}, icon: const Icon(Icons.add, size: 32)),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AccountPage()),
+                );
+              },
               icon: const Icon(Icons.person_2_outlined, size: 30),
             ),
           ],

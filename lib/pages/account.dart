@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aplikasi_pinterest/Pages/profile/profile_page.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -50,7 +51,25 @@ class AccountPage extends StatelessWidget {
                       ),
                     ),
                     
-                    const SizedBox(height: 16),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 16,
+                      child: ElevatedButton(onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ProfilePage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                        elevation: 0,
+                        overlayColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                      ),
+                      child: null,
+                      ),
+                    ),
                     
                     // Nama
                     const Text(

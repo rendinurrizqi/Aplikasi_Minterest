@@ -7,8 +7,12 @@ class MyAccountPage extends StatefulWidget {
   State<MyAccountPage> createState() => _MyAccountPageState();
 }
 
+class RouteNames {
+  static const String home = '/home_page.dart';
+}
+
 class _MyAccountPageState extends State<MyAccountPage> {
-  int _selectedIndex = 4; // posisi tab aktif (My Account)
+  int _selectedIndex = 3; // posisi tab aktif (My Account)
 
   void _onItemTapped(int index) {
     setState(() {
@@ -16,7 +20,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
     });
     // Tambahkan logika navigasi sesuai kebutuhan
     // Contoh:
-    // if (index == 0) Navigator.pushNamed(context, '/home');
+    // if (index == 0) Navigator.pushNamed(context, routeName);
   }
 
   @override
@@ -86,10 +90,6 @@ class _MyAccountPageState extends State<MyAccountPage> {
           ),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline),
-            label: 'Chat',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             label: 'Profile',

@@ -1,3 +1,4 @@
+import 'package:aplikasi_pinterest/Pages/My%20Account/my_account.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -194,20 +195,24 @@ class ProfilePage extends StatelessWidget {
                     ),
 
                     // Kotak kanan
-                    Container(
+                    SizedBox(
                       width: 100,
                       height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[400],
-                        borderRadius: BorderRadius.circular(10),
+                      child: 
+                        ElevatedButton(onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyAccountPage()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey[400],
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)
+                          ),                        
+                        ), child: Text('Edit'),
                       ),
-                      child: const Center(
-                        child: Text(
-                          "", // isi jika ingin teks
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
+                    )
                   ],
                 ),
               ),
