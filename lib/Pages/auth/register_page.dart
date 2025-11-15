@@ -1,4 +1,5 @@
 import 'package:aplikasi_pinterest/Pages/auth/login_page.dart';
+import 'package:aplikasi_pinterest/Pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -24,7 +25,8 @@ class RegisterPage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,
+                    elevation: 0,
+                    backgroundColor: Colors.grey[400],
                   ),
                   child: null,
                 ),
@@ -35,7 +37,7 @@ class RegisterPage extends StatelessWidget {
                 width: 200,
                 height: 20,
                 decoration: BoxDecoration(
-                   color: Colors.grey,
+                   color: Colors.grey[400],
                    borderRadius: BorderRadius.circular(30)
                 ),
               ),
@@ -51,7 +53,7 @@ class RegisterPage extends StatelessWidget {
                   padding: EdgeInsets.all(7),
                   height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Stack(
@@ -59,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                       Container(
                         height: 30,
                         decoration: BoxDecoration(
-                          color: Colors.grey,
+                          color: Colors.grey[400],
                           borderRadius: BorderRadius.circular(10)
                         ),
                       ),
@@ -91,7 +93,7 @@ class RegisterPage extends StatelessWidget {
                   padding: EdgeInsets.all(7),
                   height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Row(
@@ -121,7 +123,7 @@ class RegisterPage extends StatelessWidget {
                     width: 200,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.grey[400],
                       borderRadius: BorderRadius.circular(10)
                     ),
                   ),
@@ -131,7 +133,7 @@ class RegisterPage extends StatelessWidget {
                 Container(
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: 
@@ -154,7 +156,7 @@ class RegisterPage extends StatelessWidget {
                   padding: EdgeInsets.all(7),
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Row(
@@ -185,13 +187,17 @@ class RegisterPage extends StatelessWidget {
                   height: 40,
                   child: ElevatedButton(
                     onPressed: () {
-                      //Navigator.push(
-                      //  context,
-                      //  MaterialPageRoute(builder: (context) => page),
-                      //);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey,
+                      backgroundColor: Colors.grey[400],
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)
+                      ),
                     ),
                     child: Text('Masuk'),
                   ),
@@ -203,7 +209,7 @@ class RegisterPage extends StatelessWidget {
                     width: 200,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.grey[400],
                       borderRadius: BorderRadius.circular(10)
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aplikasi_pinterest/Pages/profile/profile_page.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -80,9 +81,7 @@ class AccountPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    skeletonBox(height: 18, width: 120),
-                    const SizedBox(height: 6),
-                    skeletonBox(height: 16, width: 180),
+                    
                   ],
                 ),
               ),
