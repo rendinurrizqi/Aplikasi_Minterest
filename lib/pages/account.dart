@@ -4,314 +4,149 @@ import 'package:aplikasi_pinterest/Pages/profile/profile_page.dart';
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
+  Widget skeletonBox({
+    double height = 20,
+    double width = double.infinity,
+    EdgeInsets margin = EdgeInsets.zero,
+    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(12)),
+  }) {
+    return Container(
+      height: height,
+      width: width,
+      margin: margin,
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: borderRadius,
+      ),
+    );
+  }
+
+  BottomNavigationBar buildBottomNav(BuildContext context, int currentIndex) {
+    return BottomNavigationBar(
+      currentIndex: currentIndex,
+      type: BottomNavigationBarType.fixed,
+      onTap: (index) {
+        if (index == currentIndex) return;
+        switch (index) {
+          case 0:
+            Navigator.pushReplacementNamed(context, '/home');
+            break;
+          case 1:
+            Navigator.pushReplacementNamed(context, '/search');
+            break;
+          case 2:
+            Navigator.pushReplacementNamed(context, '/posting');
+            break;
+          case 3:
+            Navigator.pushReplacementNamed(context, '/account');
+            break;
+        }
+      },
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    const currentIndex = 3;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F0),
-      
-      // ====== APP BAR ======
       appBar: AppBar(
-        title: const Text(
-          'Account',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        backgroundColor: const Color(0xFFF5F5F0),
+        title: const Text('Account'),
+        backgroundColor: Colors.white,
         elevation: 0,
-        surfaceTintColor: Colors.transparent,
-        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/my-account');
+            },
+            icon: const Icon(Icons.settings_outlined),
+          ),
+        ],
       ),
-
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
+      bottomNavigationBar: buildBottomNav(context, currentIndex),
+      body: ListView(
+        padding: const EdgeInsets.all(12),
+        children: [
+          Row(
             children: [
-              const SizedBox(height: 10),
-
-              // ====== PROFILE SECTION ======
-              _buildLofiContainer(
+              CircleAvatar(radius: 32, backgroundColor: Colors.grey[300]),
+              const SizedBox(width: 12),
+              Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Avatar dengan border lo-fi
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black, width: 3),
-                      ),
-                      child: const Icon(
-                        Icons.person,
-                        size: 50,
-                        color: Colors.black54,
-                      ),
-                    ),
                     
-                    SizedBox(
-                      width: double.infinity,
-                      height: 16,
-                      child: ElevatedButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ProfilePage()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-                        elevation: 0,
-                        overlayColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                      ),
-                      child: null,
-                      ),
-                    ),
-                    
-                    // Nama
-                    const Text(
-                      'John Doe',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    
-                    const SizedBox(height: 4),
-                    
-                    // Email
-                    const Text(
-                      'johndoe@example.com',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black54,
-                      ),
-                    ),
-                    
-                    const SizedBox(height: 12),
-                    
-                    // Bio
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.black, width: 2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Text(
-                        '✨ Creative soul | 📌 Pin collector | 🎨 Design lover',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),
-
-              const SizedBox(height: 20),
-
-              // ====== STATS SECTION ======
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildStatCard('128', 'Pins'),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _buildStatCard('1.2K', 'Followers'),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _buildStatCard('342', 'Following'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 20),
-
-              // ====== MENU SECTION ======
-              _buildLofiContainer(
-                child: Column(
-                  children: [
-                    _buildMenuItem(
-                      icon: Icons.edit_outlined,
-                      title: 'Edit Profile',
-                      onTap: () {},
-                    ),
-                    _buildDivider(),
-                    _buildMenuItem(
-                      icon: Icons.bookmark_border,
-                      title: 'Saved Pins',
-                      onTap: () {},
-                    ),
-                    _buildDivider(),
-                    _buildMenuItem(
-                      icon: Icons.settings_outlined,
-                      title: 'Settings',
-                      onTap: () {},
-                    ),
-                    _buildDivider(),
-                    _buildMenuItem(
-                      icon: Icons.privacy_tip_outlined,
-                      title: 'Privacy',
-                      onTap: () {},
-                    ),
-                    _buildDivider(),
-                    _buildMenuItem(
-                      icon: Icons.help_outline,
-                      title: 'Help & Support',
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // ====== LOGOUT BUTTON ======
-              GestureDetector(
-                onTap: () {
-                  // Logout action
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
                 },
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.black, width: 3),
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black,
-                        offset: Offset(4, 4),
-                        blurRadius: 0,
-                      ),
-                    ],
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.logout, color: Colors.black),
-                      SizedBox(width: 8),
-                      Text(
-                        'Logout',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                icon: const Icon(Icons.open_in_new),
               ),
-
-              const SizedBox(height: 30),
             ],
           ),
-        ),
-      ),
-    );
-  }
+          const SizedBox(height: 16),
 
-  // ====== HELPER WIDGETS ======
-
-  Widget _buildLofiContainer({required Widget child}) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.black, width: 3),
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black,
-            offset: Offset(6, 6),
-            blurRadius: 0,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              skeletonBox(height: 24, width: 80),
+              skeletonBox(height: 24, width: 80),
+              skeletonBox(height: 24, width: 80),
+            ],
           ),
-        ],
-      ),
-      child: child,
-    );
-  }
+          const SizedBox(height: 16),
 
-  Widget _buildStatCard(String value, String label) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        children: [
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.black54,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMenuItem({
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Row(
-          children: [
-            Icon(icon, color: Colors.black, size: 24),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w500,
-                ),
+          Row(
+            children: [
+              skeletonBox(
+                height: 28,
+                width: 120,
+                borderRadius: BorderRadius.circular(16),
               ),
-            ),
-            const Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.black54,
-              size: 16,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+              const SizedBox(width: 8),
+              skeletonBox(
+                height: 28,
+                width: 80,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              const SizedBox(width: 8),
+              skeletonBox(
+                height: 28,
+                width: 60,
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
 
-  Widget _buildDivider() {
-    return Container(
-      height: 2,
-      color: Colors.black12,
+          GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childAspectRatio: 0.7,
+            ),
+            itemCount: 12,
+            itemBuilder: (context, index) {
+              return skeletonBox(
+                height: 120,
+                borderRadius: BorderRadius.circular(12),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
