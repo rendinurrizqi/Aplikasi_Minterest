@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aplikasi_pinterest/Pages/profile/profile_page.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -7,15 +8,12 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F0),
-      
+
       // ====== APP BAR ======
       appBar: AppBar(
         title: const Text(
           'Account',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: const Color(0xFFF5F5F0),
         elevation: 0,
@@ -49,9 +47,32 @@ class AccountPage extends StatelessWidget {
                         color: Colors.black54,
                       ),
                     ),
-                    
-                    const SizedBox(height: 16),
-                    
+
+                    SizedBox(
+                      width: double.infinity,
+                      height: 16,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProfilePage(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.zero,
+                          ),
+                          elevation: 0,
+                          overlayColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                        ),
+                        child: null,
+                      ),
+                    ),
+
                     // Nama
                     const Text(
                       'John Doe',
@@ -61,20 +82,17 @@ class AccountPage extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    
+
                     const SizedBox(height: 4),
-                    
+
                     // Email
                     const Text(
                       'johndoe@example.com',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black54,
-                      ),
+                      style: TextStyle(fontSize: 14, color: Colors.black54),
                     ),
-                    
+
                     const SizedBox(height: 12),
-                    
+
                     // Bio
                     Container(
                       padding: const EdgeInsets.all(12),
@@ -86,10 +104,7 @@ class AccountPage extends StatelessWidget {
                       child: const Text(
                         '✨ Creative soul | 📌 Pin collector | 🎨 Design lover',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black87,
-                        ),
+                        style: TextStyle(fontSize: 13, color: Colors.black87),
                       ),
                     ),
                   ],
@@ -101,17 +116,11 @@ class AccountPage extends StatelessWidget {
               // ====== STATS SECTION ======
               Row(
                 children: [
-                  Expanded(
-                    child: _buildStatCard('128', 'Pins'),
-                  ),
+                  Expanded(child: _buildStatCard('128', 'Pins')),
                   const SizedBox(width: 12),
-                  Expanded(
-                    child: _buildStatCard('1.2K', 'Followers'),
-                  ),
+                  Expanded(child: _buildStatCard('1.2K', 'Followers')),
                   const SizedBox(width: 12),
-                  Expanded(
-                    child: _buildStatCard('342', 'Following'),
-                  ),
+                  Expanded(child: _buildStatCard('342', 'Following')),
                 ],
               ),
 
@@ -213,11 +222,7 @@ class AccountPage extends StatelessWidget {
         border: Border.all(color: Colors.black, width: 3),
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [
-          BoxShadow(
-            color: Colors.black,
-            offset: Offset(6, 6),
-            blurRadius: 0,
-          ),
+          BoxShadow(color: Colors.black, offset: Offset(6, 6), blurRadius: 0),
         ],
       ),
       child: child,
@@ -245,10 +250,7 @@ class AccountPage extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             label,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.black54,
-            ),
+            style: const TextStyle(fontSize: 12, color: Colors.black54),
           ),
         ],
       ),
@@ -290,9 +292,6 @@ class AccountPage extends StatelessWidget {
   }
 
   Widget _buildDivider() {
-    return Container(
-      height: 2,
-      color: Colors.black12,
-    );
+    return Container(height: 2, color: Colors.black12);
   }
 }

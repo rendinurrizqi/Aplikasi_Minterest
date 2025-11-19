@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
         children: [
           Container(
             height: 270, 
-            color: Colors.grey[700]
+            color: Colors.grey
           ),
           Container(
             margin: EdgeInsets.only(top: 200, left: 100, right: 100),
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
                 Container(
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
                 Container(
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                 Container(
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Container(
@@ -68,7 +68,11 @@ class LoginPage extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey,
+                      backgroundColor: Colors.grey[400],
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)
+                      ),
                     ),
                     child: Text('Masuk'),
                   ),
@@ -79,7 +83,7 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.all(7),
                   height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Stack(
@@ -113,7 +117,7 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.all(7),
                   height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Stack(
@@ -148,7 +152,7 @@ class LoginPage extends StatelessWidget {
                     Container(
                       height: 10,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.grey[400],
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
@@ -156,7 +160,7 @@ class LoginPage extends StatelessWidget {
                     Container(
                       height: 10,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.grey[400],
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
@@ -164,7 +168,7 @@ class LoginPage extends StatelessWidget {
                     Container(
                       height: 10,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.grey[400],
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
@@ -172,7 +176,7 @@ class LoginPage extends StatelessWidget {
                     Container(
                       height: 10,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.grey[400],
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
