@@ -1,7 +1,6 @@
 import 'package:aplikasi_pinterest/Pages/account.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/pin_card.dart';
-
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
