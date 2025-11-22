@@ -1,7 +1,8 @@
+import 'package:aplikasi_pinterest/Pages/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class MyAccountScreen extends StatelessWidget {
-  const MyAccountScreen({Key? key}) : super(key: key);
+  const MyAccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +68,24 @@ class MyAccountScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Arrow Icon
-                Container(
-                  width: 24,
-                  height: 24,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey.shade300,
+
+                SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProfilePage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor: Colors.grey[300],
+                    ),
+                    child: null,
                   ),
-                ),
+                ), // Arrow Icon
               ],
             ),
           ),
@@ -100,7 +110,6 @@ class MyAccountScreen extends StatelessWidget {
           _buildMenuItem(short: false),
 
           const SizedBox(height: 20),
-          
         ],
       ),
     );

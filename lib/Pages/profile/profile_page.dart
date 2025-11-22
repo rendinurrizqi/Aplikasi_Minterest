@@ -1,4 +1,4 @@
-import 'package:aplikasi_pinterest/Pages/My%20Account/my_account.dart';
+import 'package:aplikasi_pinterest/Pages/profile/infoprofile.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -21,18 +21,26 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // Kotak kiri
-                    Container(
+                    SizedBox(
                       width: 100,
                       height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[400],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          "", // isi jika ingin teks
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MyAccountScreen(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          elevation: 0,
+                          backgroundColor: Colors.grey[400],
                         ),
+                        child: null,
                       ),
                     ),
 
@@ -58,7 +66,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
 
               // 🔹 Kotak di atas foto profil (besar, tengah)
-             Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,13 +88,8 @@ class ProfilePage extends StatelessWidget {
                     ),
 
                     // Kotak kanan
-                    const CircleAvatar(
-                      backgroundColor: Colors.grey,
-                    ), 
-                    const CircleAvatar(
-                      backgroundColor: Colors.grey,
-                    ), 
-
+                    const CircleAvatar(backgroundColor: Colors.grey),
+                    const CircleAvatar(backgroundColor: Colors.grey),
                   ],
                 ),
               ),
@@ -101,12 +104,15 @@ class ProfilePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 20),
-              
+
               // 🔹 Kotak di bawah foto profil
               Container(
                 width: double.infinity,
                 height: 40,
-                margin: const EdgeInsets.symmetric(horizontal: 90, vertical: 10),
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 90,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.grey[400],
                   borderRadius: BorderRadius.circular(15),
@@ -123,7 +129,10 @@ class ProfilePage extends StatelessWidget {
               Container(
                 width: 100,
                 height: 10,
-                margin: const EdgeInsets.symmetric(horizontal: 90, vertical: 10),
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 90,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.grey[400],
                   borderRadius: BorderRadius.circular(15),
@@ -136,12 +145,15 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 0,),
+              const SizedBox(height: 0),
 
-             Container(
+              Container(
                 width: 200,
                 height: 20,
-                margin: const EdgeInsets.symmetric(horizontal: 90, vertical: 10),
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 90,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.grey[400],
                   borderRadius: BorderRadius.circular(15),
@@ -153,7 +165,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-             
+
               // // 🔹 Dua tombol di tengah
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.center,
@@ -169,11 +181,10 @@ class ProfilePage extends StatelessWidget {
               //     ), child: const Text("")),
               //   ],
               // ),
-
               const SizedBox(height: 20),
 
               // 🔹 Tab Bar
-             Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 250),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,31 +206,27 @@ class ProfilePage extends StatelessWidget {
                     ),
 
                     // Kotak kanan
-                    SizedBox(
+                    Container(
                       width: 100,
                       height: 50,
-                      child: 
-                        ElevatedButton(onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => MyAccountPage()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[400],
-                          shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)
-                          ),                        
-                        ), child: Text('Edit'),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[400],
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                    )
+                      child: const Center(
+                        child: Text(
+                          "", // isi jika ingin teks
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
 
               const SizedBox(height: 20),
 
-             Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 250),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,9 +266,9 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 40,), 
+              const SizedBox(height: 40),
 
-            Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 100),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
