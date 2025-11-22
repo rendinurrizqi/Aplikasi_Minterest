@@ -63,7 +63,7 @@ class ExploreScreen extends StatelessWidget {
               ),
             ),
 
-            // Text Lines (Description/Title)
+            // Text Line (Description/Title)
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(16),
