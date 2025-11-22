@@ -1,5 +1,6 @@
 import 'package:aplikasi_pinterest/Pages/profile/infoprofile.dart';
 import 'package:aplikasi_pinterest/Pages/search/search_page.dart';
+import 'package:aplikasi_pinterest/Pages/upload.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/pin_card.dart';
 
@@ -97,7 +98,15 @@ class HomePage extends StatelessWidget {
               },
               icon: const Icon(Icons.search, size: 30),
             ),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.add, size: 32)),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PostingPage()),
+                );
+              },
+              icon: const Icon(Icons.add, size: 32),
+            ),
             IconButton(
               onPressed: () {
                 Navigator.push(
