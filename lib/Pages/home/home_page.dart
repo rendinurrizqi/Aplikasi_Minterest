@@ -1,6 +1,8 @@
-import 'package:aplikasi_pinterest/Pages/account.dart';
+import 'package:aplikasi_pinterest/Pages/profile/infoprofile.dart';
+import 'package:aplikasi_pinterest/Pages/search/search_page.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/pin_card.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
@@ -87,7 +89,12 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.home_outlined, size: 30),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ExploreScreen()),
+                );
+              },
               icon: const Icon(Icons.search, size: 30),
             ),
             IconButton(onPressed: () {}, icon: const Icon(Icons.add, size: 32)),
@@ -95,7 +102,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AccountPage()),
+                  MaterialPageRoute(builder: (context) => MyAccountScreen()),
                 );
               },
               icon: const Icon(Icons.person_2_outlined, size: 30),
